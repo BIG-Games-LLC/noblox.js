@@ -61,7 +61,7 @@ describe('Game Methods', () => {
     })
   })
 
-  it('getDeveloperProducts() should return developer products, given placeId', () => {
+  it('getDeveloperProducts() should return developer products, given universeId', () => {
     return getDeveloperProducts(166178819).then((res) => {
       return expect(res).toMatchObject({
         DeveloperProducts: expect.any(Array),
@@ -180,7 +180,7 @@ describe('Game Methods', () => {
   })
 
   it('updateDeveloperProduct() should update a developer product with new information', () => {
-    return getDeveloperProducts(166178819).then((productsData) => {
+    return getDeveloperProducts(79354837).then((productsData) => {
       const developerProduct = productsData.DeveloperProducts.filter((product) => product.ProductId === newProductId)[0]
       return updateDeveloperProduct(79354837, developerProduct.DeveloperProductId, `Test${Date.now().toString().slice(-6)}`, 104, 'Currently unit testing.').then((res) => {
         return expect(res).toMatchObject({

@@ -1584,10 +1584,10 @@ declare module "noblox.js" {
 
     /**
      * 🔐 Returns the existing developer products in a specified game.
-     * @param placeId The place whose developer products are being fetched.
+     * @param universeId The universe whose developer products are being fetched.
      * @param page Which page of developer products to return (pageSize is 50)
      */
-    function getDeveloperProducts(placeId: number, page: number, jar?: CookieJar): Promise<DeveloperProductsResult>;
+    function getDeveloperProducts(universeId: number, page: number, jar?: CookieJar): Promise<DeveloperProductsResult>;
 
     function updateDeveloperProduct(universeId: number, productId: number, name: string, priceInRobux: number, description?: string, jar?: CookieJar): Promise<DeveloperProductUpdateResult>;
 
