@@ -1713,6 +1713,20 @@ declare module "noblox.js" {
      */
     function configureItem(id: number, name: string, description: string, enableComments?: boolean, sellForRobux?: boolean, genreSelection?: number, jar?: CookieJar): Promise<ConfigureItemResponse>;
 
+    type ConfigureAssetPermissionsRequest = {
+        subjectType: "Universe",
+        subjectId: number,
+        action: "Use",
+    }
+
+    type ConfigureAssetPermissionsResponse = {
+    }
+
+    /**
+     * 🔐 Configures an items permissions
+     */
+    function configureAssetPermissions(assetId: number, requests: ConfigureAssetPermissionsRequest[], jar?: CookieJar): Promise<ConfigureAssetPermissionsResponse>;
+
     /**
      * 🔐 Modifies a universe's settings
      */
