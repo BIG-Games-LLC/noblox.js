@@ -788,6 +788,20 @@ declare module "noblox.js" {
 
     /// Group
 
+    type PayoutType = "Actual" | "Projected"
+    type EligibilityType = "Eligible" | "Ineligible" // TODO: there is ZERO documentation on the internet for "Ineligible"
+
+    interface UniversePayoutHistoryData {
+        engagementScore: number;
+        payoutInRobux: number; // integer
+        payoutType: PayoutType;
+        eligibilityType: EligibilityType;
+    }
+
+    type UniversePayoutHistoryResult = {
+        [date: string]: UniversePayoutHistoryData;
+    }
+
     type GroupIconSize = "150x150" | "420x420"
     type GroupIconFormat = "Png"
 
@@ -1569,6 +1583,14 @@ declare module "noblox.js" {
      * @param universeId The universe(s) whose information are being fetched.
      */
     function getUniverseInfo(universeIds: number[] | number, jar?: CookieJar): Promise<UniverseInformation>;
+
+    /**
+     * 🔐 Returns the engagement payout history for a specific universe and a given date range, specified by start and end dates.
+     * @param universeId - The ID of the universe in question.
+     * @param startDate - The first date in the range, specified as yyyy-MM-dd.
+     * @param endDate - The last date in the range, specified as yyyy-MM-dd.
+     */
+    function getUniverseEngagementPayoutHistory(universeId: number, startDate: string, endDate: string, jar?: CookieJar): Promise<UniversePayoutHistoryResult>;
 
     // You can create a developer product, but the productId returned does not match the actual developer product id needed by the endpoints.
     // It's strange, but the edit link on the product page has the id that Roblox wants so you can edit dev products.
