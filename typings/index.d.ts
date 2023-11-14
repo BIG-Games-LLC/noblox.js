@@ -736,6 +736,23 @@ declare module "noblox.js" {
         isFavoritedByUser: boolean;
         favoritedCount: number;
     }
+            
+    interface PlaceInformation {
+        placeId: number;
+        name: string;
+        sourceName: string;
+        sourceDescription: string;
+        url: string;
+        builder: string;
+        builderId: number;
+        hasVerifiedBadge: boolean;
+        isPlayable: boolean;
+        reasonProhibited: string;
+        universeId: number;
+        universeRootPlaceId: number;
+        price: number;
+        imageToken: string;
+    }
 
     /// Group
 
@@ -947,7 +964,10 @@ declare module "noblox.js" {
 
     interface WallPost {
         id: number;
-        poster: GroupUser;
+        poster: {
+            user: GroupUser;
+            role: Role;
+        };
         body: string;
         created: Date;
         updated: Date;
@@ -1879,6 +1899,11 @@ declare module "noblox.js" {
      */
     function getUniverseInfo(universeIds: number[] | number, jar?: CookieJar): Promise<UniverseInformation[]>;
 
+    /** 
+     * 🔐 Returns information about the place(s) in question, such as name, description, etc.
+     */
+    function getPlaceInfo(placeIds: number[] | number, jar?: CookieJar): Promise<PlaceInformation[]>;
+            
     /**
      * 🔐 Returns the engagement payout history for a specific universe and a given date range, specified by start and end dates.
      * @param universeId - The ID of the universe in question.
