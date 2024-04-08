@@ -1697,7 +1697,7 @@ declare module "noblox.js" {
     /**
      * ☁️ Returns a list of entry versions of an entry.
      */
-    function getDatastoreEntryVersion(universeId: number, datastoreName: string, entryKey: string, scope?: string | boolean, startTime?: Date, endTime?: Date, sortOrder?: "Ascending" | "Descending", limit?: number, cursor?: string, jar?: CookieJar): Promise<EntryVersionsResult>
+    function getDatastoreEntryVersions(universeId: number, datastoreName: string, entryKey: string, scope?: string | boolean, startTime?: Date, endTime?: Date, sortOrder?: "Ascending" | "Descending", limit?: number, cursor?: string, jar?: CookieJar): Promise<EntryVersionsResult>
 
     /**
      * ☁️ Returns a list of entry keys within a data store.
