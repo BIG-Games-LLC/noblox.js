@@ -1778,7 +1778,7 @@ declare module "noblox.js" {
     /**
      * 🔐 Requests the revenue summary for a group for a given time frame.
      */
-    function salesReportDownload(groupId: number, startDate: Date, endDate?: Date, jar?: CookieJar): Promise<object>;
+    function salesReportDownload(groupId: number, startDate: Date, endDate?: Date, jar?: CookieJar): Promise<string>;
 
     /**
      * 🔐 Gets recent Robux revenue summary for a group; shows pending Robux. | Requires "Spend group funds" permissions.
